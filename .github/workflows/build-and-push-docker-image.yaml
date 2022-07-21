@@ -31,4 +31,4 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: tags: ${{ secrets.DOCKER_HUB_USERNAME }}/diag-tools:latest
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/diag-tools:latest
