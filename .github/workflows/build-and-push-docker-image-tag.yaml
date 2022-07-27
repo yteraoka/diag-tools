@@ -36,4 +36,4 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/diag-tools:${{ env.CI_REF_NAME }},${{ secrets.DOCKER_HUB_USERNAME }}/diag-tools:latest
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/diag-tools:${{ steps.names.outputs.tag }},${{ secrets.DOCKER_HUB_USERNAME }}/diag-tools:latest
