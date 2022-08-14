@@ -11,6 +11,7 @@
 - strace
 - openssl
 - gcloud
+- kubectl
 - MySQL/MariaDB Client (mariadb-client)
 - PostgreSQL Client (psql)
 
@@ -25,7 +26,7 @@ metadata:
 spec:
   containers:
     - name: debian
-      image: ghcr.io/yteraoka/diag-tools:0.2.0
+      image: ghcr.io/yteraoka/diag-tools:0.2.1
       command:
         - /bin/bash
       args:
@@ -46,7 +47,7 @@ spec:
   serviceAccountName: xxx
   containers:
     - name: debian
-      image: ghcr.io/yteraoka/diag-tools:0.2.0
+      image: ghcr.io/yteraoka/diag-tools:0.2.1
       command:
         - /bin/bash
       args:
