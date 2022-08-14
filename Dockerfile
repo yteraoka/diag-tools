@@ -10,3 +10,4 @@ RUN curl -Lo /usr/bin/cloud_sql_proxy https://dl.google.com/cloudsql/cloud_sql_p
 RUN echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" >> /etc/apt/sources.list.d/google-cloud-sdk.list
 RUN curl --output - https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key --keyring /usr/share/keyrings/cloud.google.gpg add -
 RUN apt-get update && apt-get install -y google-cloud-sdk && apt-get clean && rm -fr /var/lib/apt/lists/*
+RUN curl -sfLo /usr/bin/kubectl https://storage.googleapis.com/kubernetes-release/release/v1.22.12/bin/linux/amd64/kubectl && chmod +x /usr/bin/kubectl
