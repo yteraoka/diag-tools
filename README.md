@@ -1,5 +1,10 @@
 # diag-tools
 
+- https://github.com/yteraoka/diag-tools/pkgs/container/diag-tools
+  - `docker pull ghcr.io/yteraoka/diag-tools:latest`
+- https://hub.docker.com/repository/docker/yteraoka/diag-tools/general
+  - `docker pull yteraoka/diag-tools:latest`
+
 ## Install されているもの
 
 - curl
@@ -26,7 +31,7 @@ metadata:
 spec:
   containers:
     - name: debian
-      image: ghcr.io/yteraoka/diag-tools:0.2.1
+      image: ghcr.io/yteraoka/diag-tools:0.3.0
       command:
         - /bin/bash
       args:
@@ -47,7 +52,7 @@ spec:
   serviceAccountName: xxx
   containers:
     - name: debian
-      image: ghcr.io/yteraoka/diag-tools:0.2.1
+      image: ghcr.io/yteraoka/diag-tools:0.3.0
       command:
         - /bin/bash
       args:
