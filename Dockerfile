@@ -18,7 +18,7 @@ RUN echo "deb https://packages.cloud.google.com/apt cloud-sdk main" >> /etc/apt/
  && apt-get clean \
  && rm -fr /var/lib/apt/lists/*
 
-RUN curl -Lo /usr/bin/cloud_sql_proxy https://dl.google.com/cloudsql/cloud_sql_proxy.linux.amd64 \
+RUN curl -fsLo /usr/bin/cloud_sql_proxy https://dl.google.com/cloudsql/cloud_sql_proxy.linux.amd64 \
  && chmod +x /usr/bin/cloud_sql_proxy
 
 # kubectl 1.22.x
