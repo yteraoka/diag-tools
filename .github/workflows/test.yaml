@@ -39,6 +39,8 @@ jobs:
           image: diag-tools:dev
           exit-code: '1'
           failure-threshold: fatal
+          # google-cloud-sdk の settings.py が CIS-DI-0010 (FATAL) に引っかかるので除外
+          accept-filenames: settings.py
 
       - name: Trivy
         uses: aquasecurity/trivy-action@master
