@@ -1,0 +1,53 @@
+name: Lint, Build and scan container image
+
+on:
+  pull_request:
+
+jobs:
+  lint:
+    name: Lint Dockerfile with hadolint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: hadolint/hadolint-action@v2.1.0
+        with:
+          dockerfile: Dockerfile
+          failure-threshold: error
+          verbose: true
+
+  build:
+    name: Build and scan container image
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Build only
+        uses: docker/build-push-action@v3
+        with:
+          context: .
+          file: ./Dockerfile
+          load: true
+          push: false
+          tags: diag-tools:dev
+
+      - name: Dockle
+        uses: erzz/dockle-action@v1
+        with:
+          image: diag-tools:dev
+          exit-code: '1'
+          failure-threshold: fatal
+          # google-cloud-sdk の settings.py が CIS-DI-0010 (FATAL) に引っかかるので除外
+          accept-filenames: settings.py
+
+      - name: Trivy
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: diag-tools:dev
+          format: table
+          exit-code: '1'
+          ignore-unfixed: true
+          vuln-type: 'os,library'
+          severity: 'CRITICAL,HIGH'
