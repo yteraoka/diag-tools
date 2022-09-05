@@ -15,6 +15,7 @@
 - lsof
 - strace
 - openssl
+- jq
 - gcloud
 - kubectl
 - MySQL/MariaDB Client (mariadb-client)
