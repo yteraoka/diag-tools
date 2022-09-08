@@ -16,6 +16,7 @@
 - strace
 - openssl
 - jq
+- vim
 - gcloud
 - kubectl
 - MySQL/MariaDB Client (mariadb-client)
