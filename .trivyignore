@@ -1,0 +1,2 @@
+# golang.org/x/net cloud_sql_proxy の中なので対応されるまで一旦無視
+CVE-2022-41721
