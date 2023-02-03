@@ -7,7 +7,7 @@ RUN apt-get update \
  && apt-get upgrade -y \
  && apt-get install -y --no-install-recommends curl iproute2 iputils-ping bind9-host dnsutils \
      tcpdump lsof strace mariadb-client postgresql-client iperf3 openssl \
-     apt-transport-https ca-certificates gnupg jq vim \
+     apt-transport-https ca-certificates gnupg jq vim sslscan \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
 
