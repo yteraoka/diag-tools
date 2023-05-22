@@ -33,7 +33,7 @@ metadata:
 spec:
   containers:
     - name: debian
-      image: ghcr.io/yteraoka/diag-tools:0.3.0
+      image: ghcr.io/yteraoka/diag-tools:latest
       command:
         - /bin/bash
       args:
@@ -54,7 +54,7 @@ spec:
   serviceAccountName: xxx
   containers:
     - name: debian
-      image: ghcr.io/yteraoka/diag-tools:0.3.0
+      image: ghcr.io/yteraoka/diag-tools:latest
       command:
         - /bin/bash
       args:
