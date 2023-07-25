@@ -1,4 +1,4 @@
-FROM debian:11.7
+FROM debian:12.0
 
 # pipefail を指定可能にする
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
