@@ -3,11 +3,14 @@ FROM debian:12.0
 # pipefail を指定可能にする
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
+# apt-get install で prompt を表示させない
+ENV DEBIAN_FRONTEND noninteractive
+
 RUN apt-get update \
  && apt-get upgrade -y \
  && apt-get install -y --no-install-recommends curl iproute2 iputils-ping bind9-host dnsutils \
      tcpdump lsof strace mariadb-client postgresql-client iperf3 openssl \
-     apt-transport-https ca-certificates gnupg jq vim sslscan fortune \
+     apt-transport-https ca-certificates gnupg jq vim sslscan fortune awscli \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
 
