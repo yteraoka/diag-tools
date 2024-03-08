@@ -5,9 +5,7 @@ metadata:
   labels:
     {{- include "diag-tools.labels" . | nindent 4 }}
 spec:
-  {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
-  {{- end }}
   selector:
     matchLabels:
       {{- include "diag-tools.selectorLabels" . | nindent 6 }}
