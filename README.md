@@ -22,6 +22,13 @@
 - MySQL/MariaDB Client (mariadb-client)
 - PostgreSQL Client (psql)
 
+## helm apply
+
+```bash
+cd chart/diag-tools
+helm install diag-tools .
+```
+
 ## 調査用 Pod の作成
 
 ```yaml
@@ -32,7 +39,7 @@ metadata:
   name: debug
 spec:
   containers:
-    - name: debian
+    - name: diag-tools
       image: ghcr.io/yteraoka/diag-tools:latest
       command:
         - /bin/bash
@@ -53,7 +60,7 @@ metadata:
 spec:
   serviceAccountName: xxx
   containers:
-    - name: debian
+    - name: diag-tools
       image: ghcr.io/yteraoka/diag-tools:latest
       command:
         - /bin/bash
