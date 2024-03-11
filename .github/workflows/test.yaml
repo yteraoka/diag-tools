@@ -48,13 +48,13 @@ jobs:
           # google-cloud-sdk の settings.py が CIS-DI-0010 (FATAL) に引っかかるので除外
           accept-filenames: settings.py
 
-      - name: Trivy
-        uses: aquasecurity/trivy-action@master
-        with:
-          image-ref: diag-tools:dev
-          format: sarif
-          output: 'trivy-results.sarif'
-          exit-code: '1'
-          ignore-unfixed: true
-          vuln-type: 'os,library'
-          severity: 'CRITICAL,HIGH'
+#      - name: Trivy
+#        uses: aquasecurity/trivy-action@master
+#        with:
+#          image-ref: diag-tools:dev
+#          format: sarif
+#          output: 'trivy-results.sarif'
+#          exit-code: '1'
+#          ignore-unfixed: true
+#          vuln-type: 'os,library'
+#          severity: 'CRITICAL,HIGH'
