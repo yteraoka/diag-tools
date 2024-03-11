@@ -3,4 +3,3 @@
   releaseBranch = main
   versionFile = -
   changelog = false
-  release = false
