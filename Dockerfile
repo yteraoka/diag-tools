@@ -29,10 +29,7 @@ RUN curl -o google-cloud-cli.tar.gz https://dl.google.com/dl/cloudsdk/channels/r
  && tar xf google-cloud-cli.tar.gz \
  && ./google-cloud-sdk/install.sh --quiet \
  && rm -f google-cloud-cli.tar.gz \
- && ./google-cloud-sdk/bin/gcloud components install cloud_sql_proxy --quiet \
- && ./google-cloud-sdk/bin/gcloud components install cloud-run-proxy --quiet \
- && ./google-cloud-sdk/bin/gcloud components install beta --quiet \
- && ./google-cloud-sdk/bin/gcloud components install docker-credential-gcr --quiet \
+ && ./google-cloud-sdk/bin/gcloud components install cloud_sql_proxy cloud-run-proxy beta docker-credential-gcr --quiet \
  && echo "source /usr/local/google-cloud-sdk/path.bash.inc" >> /etc/bash.bashrc \
  && echo "source /usr/local/google-cloud-sdk/completion.bash.inc" >> /etc/bash.bashrc
 
