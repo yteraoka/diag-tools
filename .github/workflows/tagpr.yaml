@@ -5,27 +5,16 @@ on:
     branches:
       - main
 
-permissions:
-  id-token: write
-  contents: read
-
 jobs:
   tagpr:
     runs-on: ubuntu-latest
     steps:
-      - run: |
-          curl -sL -H "Accept: application/vnd.github+json" -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" -H "X-GitHub-Api-Version: 2022-11-28" https://api.github.com/user
       - uses: actions/create-github-app-token@v1
         id: app-token
         with:
           app-id: ${{ vars.APP_ID }}
           private-key: ${{ secrets.APP_PRIVATE_KEY }}
-      - run: |
-          curl -sL -H "Accept: application/vnd.github+json" -H "Authorization: Bearer ${GITHUB_TOKEN}" -H "X-GitHub-Api-Version: 2022-11-28" https://api.github.com/user
-        env:
-          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
       - uses: actions/checkout@v4
       - uses: Songmu/tagpr@v1
         env:
           GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
-#          GITHUB_TOKEN: ${{ secrets.PAT }}
