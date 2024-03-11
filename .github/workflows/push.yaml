@@ -55,7 +55,7 @@ jobs:
 
       - name: Extract version
         run: |
-          echo "VERSION_TAG=${GITHUB_REF#refs/tags/v}" >> $GITHUB_ENV
+          echo "VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_ENV
 
       - name: Install helm
         uses: azure/setup-helm@v4
