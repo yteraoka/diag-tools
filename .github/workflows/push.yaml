@@ -52,15 +52,18 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
 
+      - name: Extract version
+        run: |
+          echo "VERSION_TAG=${GITHUB_REF#refs/tags/v}" >> $GITHUB_ENV
+
       - name: Install helm
         uses: azure/setup-helm@v4
         with:
           version: 3.14.2
 
-      # git の tag を作るときには Chart.yaml も更新が必要
       - name: Package helm chart
         run: |
-          helm package chart/diag-tools
+          helm package --app-version ${{ env.VERSION }} --version ${{ env.VERSION }} chart/diag-tools
 
       - name: Helm login
         run: |
