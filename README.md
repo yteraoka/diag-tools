@@ -22,7 +22,21 @@
 - MySQL/MariaDB Client (mariadb-client)
 - PostgreSQL Client (psql)
 
-## helm apply
+## helm install
+
+latest
+
+```bash
+helm install diag-tools oci://ghcr.io/yteraoka/chart/diag-tools
+```
+
+specific version
+
+```bash
+helm install diag-tools oci://ghcr.io/yteraoka/chart/diag-tools --version 0.5.16
+```
+
+or
 
 ```bash
 cd chart/diag-tools
