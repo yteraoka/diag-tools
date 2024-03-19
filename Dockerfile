@@ -5,11 +5,13 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 # apt-get install で prompt を表示させない
 ENV DEBIAN_FRONTEND noninteractive
+ENV PAGER "less -X"
+ENV LANG C.utf-8
 
 RUN apt-get update \
  && apt-get upgrade -y \
  && apt-get install -y --no-install-recommends curl iproute2 iputils-ping bind9-host dnsutils \
-     tcpdump lsof strace mariadb-client postgresql-client iperf3 openssl \
+     tcpdump lsof strace mariadb-client postgresql-client iperf3 openssl less \
      apt-transport-https ca-certificates gnupg jq vim sslscan fortune awscli \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
