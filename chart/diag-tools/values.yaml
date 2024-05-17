@@ -71,3 +71,4 @@ tolerations: []
 affinity: {}
 
 revisionHistoryLimit: 10
+progressDeadlineSeconds: 600

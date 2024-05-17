@@ -29,6 +29,7 @@ spec:
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       revisionHistoryLimit: {{ .Values.revisionHistoryLimit }}
+      progressDeadlineSeconds: {{ .Values.progressDeadlineSeconds }}
       containers:
         - name: {{ .Chart.Name }}
           command:
