@@ -9,6 +9,8 @@ spec:
   selector:
     matchLabels:
       {{- include "diag-tools.selectorLabels" . | nindent 6 }}
+  revisionHistoryLimit: {{ .Values.revisionHistoryLimit }}
+  progressDeadlineSeconds: {{ .Values.progressDeadlineSeconds }}
   template:
     metadata:
       {{- with .Values.podAnnotations }}
@@ -28,8 +30,6 @@ spec:
       serviceAccountName: {{ include "diag-tools.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
-      revisionHistoryLimit: {{ .Values.revisionHistoryLimit }}
-      progressDeadlineSeconds: {{ .Values.progressDeadlineSeconds }}
       containers:
         - name: {{ .Chart.Name }}
           command:
