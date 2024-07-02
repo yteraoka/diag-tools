@@ -1,4 +1,4 @@
-FROM debian:bookworm-20240513
+FROM debian:12.6
 
 # pipefail を指定可能にする
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
