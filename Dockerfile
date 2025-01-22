@@ -27,7 +27,7 @@ RUN apt-get update \
 # && chmod +x /usr/bin/cloud_sql_proxy
 
 WORKDIR /usr/local
-RUN curl -o google-cloud-cli.tar.gz https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-466.0.0-linux-x86_64.tar.gz \
+RUN curl -o google-cloud-cli.tar.gz https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-linux-x86_64.tar.gz \
  && tar xf google-cloud-cli.tar.gz \
  && ./google-cloud-sdk/install.sh --quiet \
  && rm -f google-cloud-cli.tar.gz \
