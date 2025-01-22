@@ -72,3 +72,19 @@ affinity: {}
 
 revisionHistoryLimit: 10
 progressDeadlineSeconds: 600
+
+statefulSet:
+  enabled: false
+  volumeClaimTemplates: []
+  # - apiVersion: v1
+  #   kind: PersistentVolumeClaim
+  #   metadata:
+  #     name: tmp
+  #   spec:
+  #     accessModes:
+  #       - ReadWriteOnce
+  #     strageClassName: default
+  #     resources:
+  #       requests:
+  #         storage: 1Gi
+  #     volumeMode: Filesystem
