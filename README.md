@@ -30,6 +30,32 @@ latest
 helm install diag-tools oci://ghcr.io/yteraoka/chart/diag-tools
 ```
 
+StatefulSet with volumeClaimTemplates
+
+```bash
+cat > myvalues.yaml <<EOF
+volumeMounts:
+  - mountPath: /tmp
+    name: tmp
+statefulSet:
+  enabled: true
+  volumeClaimTemplates:
+    - apiVersion: v1
+      kind: PersistentVolumeClaim
+      metadata:
+        name: tmp
+      spec:
+        accessModes:
+          - ReadWriteOnce
+        resources:
+          requests:
+            storage: 1Gi
+        volumeMode: Filesystem
+EOF
+
+helm install diag-tools oci://ghcr.io/yteraoka/chart/diag-tools -f myvalues.yaml
+```
+
 specific version
 
 ```bash

@@ -1,6 +1,6 @@
-{{- if not .Values.statefulSet.enabled -}}
+{{- if .Values.statefulSet.enabled -}}
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
   name: {{ include "diag-tools.fullname" . }}
   labels:
@@ -10,8 +10,8 @@ spec:
   selector:
     matchLabels:
       {{- include "diag-tools.selectorLabels" . | nindent 6 }}
+  serviceName: {{ include "diag-tools.fullname" . }}
   revisionHistoryLimit: {{ .Values.revisionHistoryLimit }}
-  progressDeadlineSeconds: {{ .Values.progressDeadlineSeconds }}
   template:
     metadata:
       {{- with .Values.podAnnotations }}
@@ -64,4 +64,8 @@ spec:
       tolerations:
         {{- toYaml . | nindent 8 }}
       {{- end }}
+  {{- with .Values.statefulSet.volumeClaimTemplates }}
+  volumeClaimTemplates:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
 {{- end }}
