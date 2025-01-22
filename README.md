@@ -7,6 +7,7 @@
 
 ## Install されているもの
 
+- awscli
 - curl
 - ping
 - ip
