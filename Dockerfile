@@ -54,5 +54,5 @@ RUN kube_version=$( \
       cat /tmp/versions.* | sort --version-sort | grep ^v1.32 | tail -n 1) \
  && rm -f /tmp/versions.* \
  && echo "Install kubectl ${kube_version}" 1>&2 \
- && curl -sfLo /usr/bin/kubectl https://storage.googleapis.com/kubernetes-release/release/${kube_version}/bin/linux/amd64/kubectl \
+ && curl -sfLo /usr/bin/kubectl https://dl.k8s.io/release/${kube_version}/bin/linux/amd64/kubectl \
  && chmod +x /usr/bin/kubectl
