@@ -4,9 +4,9 @@ FROM debian:13.3
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 # apt-get install で prompt を表示させない
-ENV DEBIAN_FRONTEND noninteractive
-ENV PAGER "less -X"
-ENV LANG C.utf-8
+ENV DEBIAN_FRONTEND=noninteractive
+ENV PAGER="less -X"
+ENV LANG=C.utf-8
 
 RUN apt-get update \
  && apt-get upgrade -y \
