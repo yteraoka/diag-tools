@@ -40,7 +40,7 @@ jobs:
           tags: diag-tools:dev
 
       - name: Dockle
-        uses: erzz/dockle-action@69369bc745ee29813f730231a821bcd4f71cd290 # v1.4.0
+        uses: erzz/dockle-action@e8a7c41f36f1236ca3282b298d425ffbfdb2e922 # v1.4.1
         with:
           image: diag-tools:dev
           exit-code: '1'
