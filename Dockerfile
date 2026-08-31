@@ -16,22 +16,12 @@ RUN apt-get update \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
 
-# https://cloud.google.com/sdk/docs/install?hl=ja#deb
-#RUN echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] http://packages.cloud.google.com/apt cloud-sdk main" | tee -a /etc/apt/sources.list.d/google-cloud-sdk.list \
-# && curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key --keyring /usr/share/keyrings/cloud.google.gpg  add - \
-# && apt-get update -y \
-# && apt-get install google-cloud-cli -y --no-install-recommends \
-# && apt-get clean \
-# && rm -fr /var/lib/apt/lists/*
-#RUN curl -fsLo /usr/bin/cloud_sql_proxy https://dl.google.com/cloudsql/cloud_sql_proxy.linux.amd64 \
-# && chmod +x /usr/bin/cloud_sql_proxy
-
 WORKDIR /usr/local
 RUN curl -o google-cloud-cli.tar.gz https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-linux-x86_64.tar.gz \
  && tar xf google-cloud-cli.tar.gz \
  && ./google-cloud-sdk/install.sh --quiet \
  && rm -f google-cloud-cli.tar.gz \
- && ./google-cloud-sdk/bin/gcloud components install cloud_sql_proxy cloud-run-proxy beta docker-credential-gcr --quiet \
+ && ./google-cloud-sdk/bin/gcloud components install cloud-sql-proxy cloud-run-proxy beta docker-credential-gcr --quiet \
  && echo "source /usr/local/google-cloud-sdk/path.bash.inc" >> /etc/bash.bashrc \
  && echo "source /usr/local/google-cloud-sdk/completion.bash.inc" >> /etc/bash.bashrc
 
